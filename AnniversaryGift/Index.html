@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0712">
+<title>Love Management System — 4th Anniversary Edition</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<!-- LOGIN -->
+<main id="login" class="screen active">
+  <form id="loginForm" class="panel login-card" autocomplete="off">
+    <div class="status"><i class="dot"></i> SYSTEM ONLINE</div>
+    <h1>LOVE MANAGEMENT SYSTEM</h1>
+    <p class="sub">Relationship Management &amp; Memory Archive</p>
+    <label for="u">Username</label>
+    <input id="u" name="u" type="text" autocapitalize="none" spellcheck="false" required>
+    <label for="p">Password</label>
+    <input id="p" name="p" type="password" required>
+    <div id="err" class="err" role="alert" hidden>
+      <b>[MALI KA BOIIII]</b><br>BAKIT MALI SAGOT MO DODONG AHH.<br>Ayusin mo yan dodong
+    </div>
+    <button class="btn" type="submit">AUTHENTICATE</button>
+    <details class="hint-box">
+      <summary>GUSTO MO CLUE?</summary>
+      <p><b>Username:</b> ang nickname na itinawag sa atin ng mga kaklase natin noong nagsisimula pa lang tayo at kumalat ang chismis na nagde-date na tayo. Parang si zuriel ata nag tatak ng nickname na yun eh</p>
+      <p><b>Password:</b> same nickname, dagdagan ng <code>0and_</code> (ang araw ng anniversary natin).</p>
+      <p>NAKO DODONG PAG IKAW NA STOCK DITO EWAN KO NALANG TALAGA😒</p>
+    </details>
+    <small class="ver">build 4.0.0 · edition: 4th Anniversary</small>
+  </form>
+</main>
+
+<!-- BOOT TERMINAL -->
+<section id="boot" class="screen"><pre id="bootLog" class="term-out"></pre></section>
+
+<!-- APP -->
+<div id="app" class="screen">
+  <aside id="side">
+    <div class="brand">♥ LMS <small>v4.0</small></div>
+    <nav id="nav">
+      <button data-view="dashboard" class="on">🏠 Dashboard</button>
+      <button data-view="memories">🗂️ Memory Archive</button>
+      <button data-view="changelog">📜 Version History</button>
+      <button data-view="terminal">⌨️ Terminal</button>
+      <button data-view="final" id="finalBtn" class="locked">🔒 final_commit</button>
+    </nav>
+    <div class="side-foot"><span class="dot"></span> db: connected<br><span id="prog">modules reviewed 0/3</span></div>
+  </aside>
+  <div id="scrim"></div>
+  <div class="main">
+    <header class="top">
+      <button id="burger" aria-label="Toggle navigation">☰</button>
+      <span id="crumb">/dashboard</span>
+      <span class="user">user: <b>maryance</b> <button id="logout" class="link">logout</button></span>
+    </header>
+
+    <section id="v-dashboard" class="view show">
+      <h2>System Overview</h2>
+      <div class="grid">
+        <div class="panel stat"><span>Uptime</span><b id="days">0</b><em>days running</em></div>
+        <div class="panel stat"><span>Hours of Being Together</span><b id="hours">0</b><em>and counting</em></div>
+        <div class="panel stat"><span>Active users</span><b>2</b><em>no duplicate accounts Tayo lang dapat!</em></div>
+        <div class="panel stat"><span>Critical bugs</span><b>0</b><em>only minor disagreements (Lahat na solve natin eh haha)</em></div>
+        <div class="panel wide"><h3>Resource usage</h3>
+          <div class="bar"><label>drinks consumed</label><i style="--w:96%"></i></div>
+          <div class="bar"><label>Fries shared (stolen/libre)</label><i style="--w:88%"></i></div>
+          <div class="bar"><label>Road Trips</label><i style="--w:72%"></i></div>
+          <div class="bar"><label>Food cravings</label><i style="--w:84%"></i></div>
+          <div class="bar"><label>Affection</label><i style="--w:100%" class="over"></i><small>value exceeds maximum (sagad na natin HAHAHA)</small></div>
+        </div>
+        <div class="panel wide"><h3>System log</h3><pre id="log" class="term-out small"></pre></div>
+      </div>
+    </section>
+
+    <section id="v-memories" class="view">
+      <h2>Memory Archive</h2>
+      <p class="hint">Tap a record to decrypt it.</p>
+      <div id="memList" class="mem"></div>
+    </section>
+
+    <section id="v-changelog" class="view">
+      <h2>Version History</h2>
+      <div id="chg" class="chg"></div>
+    </section>
+
+    <section id="v-terminal" class="view">
+      <h2>Terminal</h2>
+      <div class="panel term" id="termBox">
+        <pre id="termOut" class="term-out small"></pre>
+        <div class="prompt"><span>maryance@lms:~$</span><input id="termIn" type="text" autocapitalize="none" autocomplete="off" spellcheck="false" aria-label="Command"></div>
+      </div>
+    </section>
+
+    <section id="v-final" class="view">
+      <div id="gate" class="panel gate">
+        <h2>final_commit.exe</h2>
+        <p>One last file is waiting to be executed.</p>
+        <button id="run" class="btn">EXECUTE</button>
+      </div>
+      <div id="reveal" hidden>
+        <div class="hero-heart">♥</div>
+        <h2 class="rev-title">Happy 4th Anniversary</h2>
+        <div id="letter" class="letter"></div>
+        <button id="music" class="link" hidden>♪ play song</button>
+      </div>
+    </section>
+  </div>
+</div>
+<script src="script.js"></script>
+<script src="gallery.js"></script>
+</body>
+</html>
